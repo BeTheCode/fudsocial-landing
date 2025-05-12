@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FUDsocial - Detect Fear, Uncertainty, and Doubt Across Social Media</title>
+    <meta name="description" content="FUDsocial helps you identify manipulative content across social media with politically neutral detection tools.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #3B82F6;
+            --primary-dark: #2563EB;
+            --gray-50: #F9FAFB;
+            --gray-100: #F3F4F6;
+            --gray-200: #E5E7EB;
+            --gray-600: #4B5563;
+            --gray-700: #374151;
+            --gray-800: #1F2937;
+            --gray-900: #111827;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--gray-800);
+            line-height: 1.5;
+            background-color: var(--gray-50);
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background-color: white;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            padding: 1rem 0;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 700;
+            font-size: 1.25rem;
+            color: var(--primary);
+        }
+        
+        .cta-button {
+            background-color: var(--primary);
+            color: white;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem;
+            text-decoration: none;
+            transition: background-color 0.2s;
+            display: inline-block;
+            text-align: center;
+        }
+        
+        .cta-button:hover {
+            background-color: var(--primary-dark);
+        }
+        
+        .hero {
+            padding: 4rem 0;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--gray-900);
+        }
+        
+        .hero p {
+            font-size: 1.125rem;
+            color: var(--gray-600);
+            max-width: 36rem;
+            margin: 0 auto 2rem;
+        }
+        
+        .coming-soon {
+            display: inline-block;
+            font-weight: 500;
+            color: var(--primary);
+            background-color: rgba(59, 130, 246, 0.1);
+            padding: 0.25rem 0.5rem;
+            border-radius: 0.25rem;
+            margin-bottom: 1rem;
+        }
+        
+        .features {
+            background-color: white;
+            padding: 4rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .section-title h2 {
+            font-size: 2rem;
+            color: var(--gray-900);
+            margin-bottom: 1rem;
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .feature-card {
+            background-color: var(--gray-50);
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature-icon {
+            background-color: var(--primary);
+            color: white;
+            width: 3rem;
+            height: 3rem;
+            border-radius: 0.375rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        
+        .feature-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            color: var(--gray-900);
+        }
+        
+        .signup {
+            padding: 4rem 0;
+            text-align: center;
+            background-color: var(--gray-100);
+        }
+        
+        .waitlist-form {
+            max-width: 28rem;
+            margin: 2rem auto 0;
+        }
+        
+        .form-group {
+            display: flex;
+            margin-bottom: 1rem;
+        }
+        
+        .form-input {
+            flex: 1;
+            padding: 0.75rem 1rem;
+            border: 1px solid var(--gray-200);
+            border-radius: 0.375rem 0 0 0.375rem;
+            font-size: 1rem;
+        }
+        
+        .form-button {
+            background-color: var(--primary);
+            color: white;
+            font-weight: 500;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 0 0.375rem 0.375rem 0;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        
+        .form-button:hover {
+            background-color: var(--primary-dark);
+        }
+        
+        footer {
+            background-color: var(--gray-800);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .form-group {
+                flex-direction: column;
+            }
+            
+            .form-input {
+                border-radius: 0.375rem;
+                margin-bottom: 0.5rem;
+            }
+            
+            .form-button {
+                border-radius: 0.375rem;
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                FUDsocial
+            </div>
+            <a href="#signup" class="cta-button">Join Waitlist</a>
+        </div>
+    </header>
+    
+    <section class="hero">
+        <div class="container">
+            <span class="coming-soon">Coming Soon</span>
+            <h1>Cut Through the Noise on Social Media</h1>
+            <p>FUDsocial helps you identify Fear, Uncertainty, and Doubt (FUD) across social platforms with our politically neutral detection tools.</p>
+            
+            <a href="#signup" class="cta-button">Join Waitlist</a>
+        </div>
+    </section>
+    
+    <section class="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>How It Works</h2>
+            </div>
+            
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🔍</div>
+                    <h3>FUD Detection</h3>
+                    <p>Automatically detect content designed to trigger fear, uncertainty, and doubt as you browse.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">⚖️</div>
+                    <h3>Political Neutrality</h3>
+                    <p>Our analysis focuses on rhetorical patterns, not content positions or specific political viewpoints.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🌐</div>
+                    <h3>Cross-Platform</h3>
+                    <p>Works across LinkedIn, Twitter/X, Reddit, and major news sites to protect you everywhere.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="signup" class="signup">
+        <div class="container">
+            <div class="section-title">
+                <h2>Be the First to Know</h2>
+                <p>Join our waitlist to get early access to FUDsocial and receive updates on our launch.</p>
+            </div>
+            
+            <div class="waitlist-form">
+                <!-- We'll replace this with a real form in Session 2 -->
+                <form>
+                    <div class="form-group">
+                        <input type="email" class="form-input" placeholder="Enter your email" required>
+                        <button type="submit" class="form-button">Join Waitlist</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <p>© 2025 FUDsocial. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
