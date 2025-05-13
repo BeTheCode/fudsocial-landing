@@ -218,6 +218,15 @@
                 width: 100%;
             }
         }
+        iframe {
+            border: none;
+            width: 100%;
+            min-height: 100px;
+        }
+        
+        .tally-embed {
+            font-family: 'Inter', sans-serif !important;
+        }        
     </style>
 </head>
 <body>
@@ -273,19 +282,16 @@
             <div class="section-title">
                 <h2>Be the First to Know</h2>
                 <p>Join our waitlist to get early access to FUDsocial and receive updates on our launch.</p>
-            </div>
-            
+            </div>            
             <div class="waitlist-form">
                 <div data-tally-src="https://tally.so/embed/w4qV9X?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" data-tally-width="100%" data-tally-emoji-text="👋" data-tally-emoji-animation="wave"></div>
-            </div>
+                <script>import("https://tally.so/widgets/embed.js").then(function (module) {
+                    module.default.loadEmbeds();
+                });</script>
+            </div>            
         </div>
     </section>
-    
-    <script type="module">
-        import("https://tally.so/widgets/embed.js").then((module) => {
-            module.default.loadEmbeds();
-        });
-    </script>
+
     
     <footer>
         <div class="container">
