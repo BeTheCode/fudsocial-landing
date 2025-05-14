@@ -306,5 +306,19 @@
             <p>© 2025 FUDsocial. All rights reserved.</p>
         </div>
     </footer>
+    <script>
+      // Listen for messages from Tally iframe
+      window.addEventListener('message', function(e) {
+        if (e.data.type === 'tally-form-submit') {
+          // Track form submission in Google Analytics
+          gtag('event', 'wait_list', {
+            'event_category': 'engagement',
+            'event_label': 'waitlist form'
+          });
+          
+          console.log('Form submission tracked in GA');
+        }
+      });
+    </script>     
 </body>
 </html>
